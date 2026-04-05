@@ -1,9 +1,11 @@
 function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#current-temperature");
-  let temperature = Math.round(response.data.temperature.current);
-  let cityElement = document.querySelector("#current-city");
-  cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = temperature;
+  document.querySelector("#current-city").innerHTML = response.data.city;
+  document.querySelector("#current-temperature").innerHTML = Math.round(response.data.temperature.current);
+  document.querySelector("#current-description").innerHTML = response.data.condition.description;
+  document.querySelector("#current-humidity").innerHTML = response.data.temperature.humidity + "%";
+  document.querySelector("#current-wind").innerHTML = Math.round(response.data.wind.speed) + " km/h";
+  document.querySelector("#current-icon").src = response.data.condition.icon_url;
+  document.querySelector("#current-icon").alt = response.data.condition.description;
 }
 
 function search(event) {
